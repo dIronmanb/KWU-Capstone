@@ -1,0 +1,19 @@
+1. train_options.py에서 parser 내용 보면서 에러 뜨는 것 있으면 수정
+(해결)2. model save해서 현재 final_model/checkpoints/ 안에 들어가는지 확인 -> 안되면 수정
+3. load model해서 모델이 잘 불러와 지는지
+
+
+4. quick_test.py 코드 구현:
+  - opt = parse_opt()
+  - model = CycleGANModel(opt)
+  - self.netG_A, self.netG_B, self.netD_A, self.netD_B의 가중치 업로드
+  
+  - fake_B_photon, fake_B_image = model.netG_A(lego_photon_data)로  레고 pcd 입력으로 넣어주기
+  - fake_B_image 출력하기
+    - plt.imshow((fake_B_image * 255).detach().numpy().astype(uint8))
+    - plt.show()
+    
+5. GeneratorMLP(), Discriminator() 인자 값 바꾸면서 디버깅 (최대 GPU Memory에 얼마만큼 올라가냐)
+6. (성능 차이 Optional) 
+    
+
